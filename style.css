@@ -1,0 +1,214 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Inter', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  z-index: 10;
+}
+
+.logo img {
+  height: 32px;
+}
+
+.icons a {
+  margin-left: 16px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.icons a:hover {
+  color: #e6c752;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: url('assets/ISTOCK.jpg') no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 72px;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 1280px;
+  padding: 0 32px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  transform: translateY(-60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 220px;
+}
+
+/* Tip headline */
+.tip {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.4;
+  max-width: 800px;
+  min-height: calc(32px * 2 * 1.4); /* exakt plats för 2 rader */
+  display: flex;
+  align-items: flex-start; /* <-- alltid börja uppifrån */
+  justify-content: center;
+  text-align: center;
+  color: #FAF3EB;
+  margin-bottom: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tip.visible {
+  opacity: 1;
+}
+
+.tip a {
+  color: #FAF3EB;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.tip a:hover {
+  color: white;
+}
+
+/* Button */
+button {
+  font-family: monospace;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 40px;
+  border: 2px solid #e6c752;
+  background: rgba(255, 255, 255, 0.05);
+  color: white; /* <-- alltid vit */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+
+button i {
+  margin-right: 8px;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.25); /* gul skugga */
+  border-color: #ffd700;
+  color: white;
+}
+
+/* Button animation */
+@keyframes button-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+button.clicked {
+  animation: button-pop 0.25s ease;
+}
+
+/* Footer */
+.footer {
+  background: #111111;
+  padding: 48px 32px;
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+
+.footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #e6c752;
+}
+
+.footer-tagline {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* 📱 Mobile styles */
+@media (max-width: 600px) {
+  .tip {
+    font-size: 24px;
+    min-height: calc(24px * 2 * 1.4);
+  }
+
+  .hero-content {
+    padding: 48px 16px 0;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 14px 24px;
+    margin-top: 32px;
+  }
+
+  .header {
+    padding: 12px 16px;
+  }
+
+  .icons a {
+    font-size: 18px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .footer {
+    padding: 32px 16px;
+    font-size: 13px;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+  }
+}
